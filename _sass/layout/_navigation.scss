@@ -515,19 +515,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   background: var(--global-base-color);
   border: none;
   cursor: pointer;
   padding: 0;
   z-index: 1000;
   border-radius: 5px;
+  top: 0.5rem;
+  right: 0.5rem;
+  position: absolute;
 
   .bar {
-    width: 22px;
-    height: 3px;
-    margin: 3px 0;
+    width: 18px;
+    height: 2.5px;
+    margin: 2px 0;
     background-color: #fff;
     border-radius: 2px;
   }
@@ -536,10 +539,8 @@
 @media screen and (max-width: 767px) {
   .nav-toggle {
     display: flex;
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
   }
+}
 
   .greedy-nav .visible-links {
     display: none;
