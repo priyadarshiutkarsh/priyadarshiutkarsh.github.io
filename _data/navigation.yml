@@ -13,15 +13,15 @@ main:
     url: /
 
   - title: "Publications"
-    url: /publications/
+    url: /publications/ 
+
+  - title: "Projects"
+    url: /teaching/ 
 
   - title: "Talks"
-    url: /talks/    
-
-  - title: "Teaching"
-    url: /teaching/    
+    url: /talks/  
         
-  - title: "Blog Posts"
+  - title: "Blog"
     url: /year-archive/
     
   - title: "CV"
