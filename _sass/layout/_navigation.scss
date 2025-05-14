@@ -177,6 +177,16 @@
   min-width: 250px;
   background: var(--global-bg-color);
 
+   @media screen and (min-width: 768px) {
+  .greedy-nav {
+    max-width: 860px;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+
   a {
     display: block;
     margin: 0 1rem;
