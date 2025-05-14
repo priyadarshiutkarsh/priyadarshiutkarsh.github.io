@@ -505,3 +505,62 @@
 .greedy-nav .hidden-links {
   z-index: 9999;
 }
+
+/* ==========================================================================
+   Custom Hamburger Button
+   ========================================================================== */
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: var(--global-base-color);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1000;
+  border-radius: 5px;
+
+  .bar {
+    width: 22px;
+    height: 3px;
+    margin: 3px 0;
+    background-color: #fff;
+    border-radius: 2px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .nav-toggle {
+    display: flex;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+
+  .greedy-nav .visible-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--global-bg-color);
+    padding: 1rem 0;
+    border-top: 1px solid var(--global-border-color);
+  }
+
+  .greedy-nav .visible-links.open {
+    display: flex;
+  }
+
+  .greedy-nav .visible-links li {
+    margin: 0.5rem 1rem;
+  }
+
+  .greedy-nav .visible-links a {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid var(--global-border-color);
+  }
+}
+
