@@ -446,3 +446,62 @@
     }
   }
 }
+
+/* ==========================================================================
+   Mobile Navigation Fixes
+   ========================================================================== */
+
+@media screen and (max-width: 767px) {
+  .greedy-nav {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .greedy-nav .visible-links {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-top: 0.5rem;
+
+    li {
+      display: block;
+      margin: 0.25rem 0;
+    }
+
+    a {
+      padding: 0.5rem 0.75rem;
+      margin: 0;
+      border-bottom: 1px solid var(--global-border-color);
+    }
+  }
+
+  .greedy-nav button {
+    right: 0.75rem;
+    top: 0.75rem;
+    z-index: 999;
+  }
+
+  #theme-toggle {
+    display: block;
+    margin: 0.5rem 0 0.5rem 0.75rem;
+
+    a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 36px;
+      height: 36px;
+      font-size: 1.25rem;
+    }
+  }
+}
+
+/* Prevent nav flickering */
+.greedy-nav .visible-links {
+  transition: none !important;
+}
+
+/* Ensure dropdown nav stays above all elements */
+.greedy-nav .hidden-links {
+  z-index: 9999;
+}
