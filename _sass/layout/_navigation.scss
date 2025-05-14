@@ -176,6 +176,9 @@
   position: relative;
   min-width: 250px;
   background: var(--global-bg-color);
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
 
   a {
     display: block;
