@@ -517,14 +517,14 @@
 
     button {
       position: absolute;
-      top: 0.25rem;
-      right: 0.25rem;
-      width: 28px;
-      height: 28px;
+      top: 0.5rem;
+      right: 0.75rem;
+      width: 32px;
+      height: 32px;
       background: var(--global-base-color);
       color: #fff;
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
       cursor: pointer;
       display: flex;
       justify-content: center;
@@ -532,8 +532,9 @@
       z-index: 1000;
 
       svg {
-        width: 16px !important;
-        height: 16px !important;
+        width: 20px !important;
+        height: 20px !important;
+        fill: #fff;
       }
     }
 
@@ -575,10 +576,6 @@
   }
 }
 
-/* ==========================================================================
-   Desktop Nav Behavior
-   ========================================================================== */
-
 @media screen and (min-width: 768px) {
   .greedy-nav {
     .visible-links {
@@ -591,10 +588,6 @@
   }
 }
 
-/* ==========================================================================
-   Additional Fixes
-   ========================================================================== */
-
 .greedy-nav .visible-links {
   transition: none !important;
 }
@@ -602,4 +595,3 @@
 .greedy-nav .hidden-links {
   z-index: 9999;
 }
-
