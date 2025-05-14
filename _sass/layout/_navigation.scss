@@ -515,21 +515,21 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 32px;
-  height: 32px;
+  width: 28px;         // slightly smaller
+  height: 28px;
   background: var(--global-base-color);
   border: none;
   cursor: pointer;
   padding: 0;
   z-index: 1000;
-  border-radius: 5px;
-  top: 0.5rem;
-  right: 0.5rem;
+  border-radius: 4px;
+  top: 0.25rem;         // move up slightly
+  right: 0.25rem;
   position: absolute;
 
   .bar {
-    width: 18px;
-    height: 2.5px;
+    width: 16px;
+    height: 2px;
     margin: 2px 0;
     background-color: #fff;
     border-radius: 2px;
@@ -541,6 +541,7 @@
     display: flex;
   }
 }
+
 
   .greedy-nav .visible-links {
     display: none;
