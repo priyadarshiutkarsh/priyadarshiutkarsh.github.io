@@ -57,7 +57,17 @@
     padding: 0 !important;
     background-color: var(--global-bg-color) !important;
     z-index: 100 !important;
-    border-bottom: 1px solid var(--global-border-color) !important;
+    border-bottom: 1px solid var(--global-border-color) !important; /* Keep the bottom border */
+  }
+  
+  /* Remove any extra lines around theme toggle */
+  #theme-toggle:after,
+  #theme-toggle:before,
+  .greedy-nav .visible-links li.tail:after,
+  .greedy-nav .visible-links li.tail:before {
+    display: none !important;
+    content: none !important;
+    border: none !important;
   }
 
   body {
@@ -91,15 +101,6 @@
     width: 100% !important;
     justify-content: flex-end !important;
     align-items: center !important;
-  }
-
-  /* Right-align container for the buttons */
-  .button-container {
-    display: flex !important;
-    align-items: center !important;
-    position: absolute !important;
-    right: 15px !important;
-    top: 10px !important;
   }
 
   /* Custom button styles for hamburger */
@@ -156,6 +157,9 @@
     position: absolute !important;
     right: 60px !important; /* Position to the left of hamburger */
     top: 10px !important;
+    border: none !important; /* Remove any border */
+    background: none !important;
+    box-shadow: none !important;
   }
 
   /* Theme toggle custom style */
@@ -165,11 +169,17 @@
     justify-content: center !important;
     width: 40px !important;
     height: 40px !important;
+    border: none !important; /* Remove any border */
+    background: none !important;
+    box-shadow: none !important;
   }
 
   #theme-icon {
     font-size: 20px !important;
     color: var(--global-text-color) !important;
+    border: none !important; /* Remove any border */
+    background: none !important;
+    box-shadow: none !important;
   }
 
   /* Fix dropdown links position */
