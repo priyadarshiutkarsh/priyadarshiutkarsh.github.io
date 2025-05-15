@@ -44,3 +44,41 @@
    
     "layout/mobile-nav"
 ;
+
+/* Mobile-specific navigation fixes */
+@media screen and (max-width: 600px) {
+  .masthead {
+    position: relative; /* Change from fixed to relative on mobile */
+    top: auto;
+  }
+  
+  .greedy-nav {
+    /* Improve mobile navigation display */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .greedy-nav .visible-links {
+    /* Adjust the visible links for mobile */
+    display: flex;
+    width: 100%;
+  }
+  
+  .greedy-nav .visible-links li {
+    /* Make each navigation item display properly */
+    display: inline-block;
+    padding: 0.25em 0;
+  }
+  
+  /* Ensure content doesn't hide under the navigation */
+  .page__content {
+    margin-top: 1em;
+  }
+  
+  /* Make the navigation button more visible on mobile */
+  .greedy-nav button {
+    height: 100%;
+    align-self: center;
+  }
+}
