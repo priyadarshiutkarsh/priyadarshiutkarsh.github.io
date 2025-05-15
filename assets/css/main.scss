@@ -45,131 +45,145 @@
     "layout/mobile-nav"
 ;
 
-/* Mobile navigation positioning */
+/* Complete mobile navigation with light/dark toggle */
 @media only screen and (max-width: 767px) {
   /* Fix masthead position */
   .masthead {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    z-index: 9999;
-    background-color: var(--global-bg-color);
-    border-bottom: 1px solid var(--global-border-color);
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 60px !important;
+    z-index: 9999 !important;
+    background-color: var(--global-bg-color) !important;
+    border-bottom: 1px solid var(--global-border-color) !important;
   }
   
-  /* Add padding to body */
   body {
-    padding-top: 60px;
+    padding-top: 60px !important;
   }
   
-  /* Style the inner container */
-  .masthead__inner-wrap {
-    height: 60px;
-    padding: 0 20px;
-    max-width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
-  
-  /* Adjust menu width and positioning */
-  .masthead__menu {
-    width: auto;
-    margin-left: auto;
-  }
-  
-  /* Style the navigation container */
-  .greedy-nav {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    min-width: 0;
-    width: auto;
-    background: transparent;
-  }
-  
-  /* Hide most links except toggle */
-  .greedy-nav .visible-links li:not(.tail) {
-    display: none;
-  }
-  
-  /* Show the theme toggle */
-  .greedy-nav .visible-links li.tail {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-    order: 1;
-  }
-  
-  /* Style the theme toggle */
-  #theme-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-  }
-  
-  /* Make the icon larger */
-  #theme-toggle i {
-    font-size: 24px;
-  }
-  
-  /* Position the hamburger button */
+  /* Position the hamburger button further right */
   .greedy-nav button {
-    position: relative;
-    right: 0;
-    height: 40px;
-    width: 40px;
-    background: transparent;
-    border: none;
-    margin: 0;
-    padding: 0;
-    order: 2;
+    position: absolute !important;
+    right: 5px !important;
+    top: 10px !important;
+    width: 40px !important;
+    height: 40px !important;
+    z-index: 10001 !important;
+    background: transparent !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
   
-  /* Style the hamburger icon */
+  /* Position and show the theme toggle */
+  #theme-toggle {
+    position: absolute !important;
+    right: 55px !important;
+    top: 10px !important;
+    width: 40px !important;
+    height: 40px !important;
+    z-index: 10001 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* Make sure the theme icon is visible */
+  #theme-toggle a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  
+  /* Style the icon itself */
+  #theme-icon {
+    font-size: 24px !important;
+    display: block !important;
+    color: var(--global-text-color) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* If theme icon is missing, add a sun icon */
+  #theme-toggle:after {
+    content: "☀️" !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    font-size: 20px !important;
+    display: block !important;
+    z-index: 10002 !important;
+    pointer-events: none !important;
+  }
+  
+  /* Make sure the theme toggle container is accessible */
+  .greedy-nav .visible-links li.tail {
+    position: relative !important;
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    clip: auto !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* Style the hamburger button */
   .navicon {
-    background: var(--global-text-color);
-    height: 2px;
-    width: 20px;
-    position: relative;
+    width: 20px !important;
+    height: 2px !important;
+    background-color: var(--global-text-color) !important;
+    position: relative !important;
+    display: block !important;
   }
   
   .navicon:before,
   .navicon:after {
-    content: "";
-    display: block;
-    width: 20px;
-    height: 2px;
-    background: var(--global-text-color);
-    position: absolute;
-    left: 0;
+    content: "" !important;
+    width: 20px !important;
+    height: 2px !important;
+    background-color: var(--global-text-color) !important;
+    position: absolute !important;
+    left: 0 !important;
+    display: block !important;
   }
   
   .navicon:before {
-    top: -6px;
+    top: -6px !important;
   }
   
   .navicon:after {
-    bottom: -6px;
+    bottom: -6px !important;
   }
   
-  /* Position the dropdown menu */
+  /* Position dropdown menu */
   .greedy-nav .hidden-links {
-    right: 0;
-    top: 60px;
+    top: 60px !important;
+    right: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
   }
   
-  /* Make sure the dropdown appears above other content */
-  .greedy-nav .hidden-links.hidden {
-    display: none;
+  /* Hide all regular navigation elements */
+  .greedy-nav .visible-links li:not(.tail) {
+    display: none !important;
   }
   
-  /* Hide site title */
-  .greedy-nav .visible-links li.masthead__menu-item--lg {
-    display: none;
+  /* Show the tail element that contains the theme toggle */
+  .greedy-nav .visible-links li.tail {
+    display: block !important;
+    position: absolute !important;
+    right: 55px !important;
+    top: 10px !important;
+    width: 40px !important;
+    height: 40px !important;
   }
 }
