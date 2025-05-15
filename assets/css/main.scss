@@ -45,110 +45,143 @@
     "layout/mobile-nav"
 ;
 
-/* Mobile navigation fixes */
+/* Mobile navigation fixes - CSS only approach */
 @media screen and (max-width: 767px) {
-  /* Force the masthead to be visible and properly positioned */
+  /* Fix masthead position */
   .masthead {
-    display: block !important;
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
-    height: auto !important;
     z-index: 1000 !important;
     background-color: var(--global-bg-color) !important;
-    border-bottom: 1px solid var(--global-border-color) !important;
-    padding: 0 !important;
-    margin: 0 !important;
   }
   
-  /* Force the masthead inner wrap to take full width */
+  /* Add space for fixed header */
+  body {
+    padding-top: 50px !important;
+  }
+  
+  /* Adjust container size */
   .masthead__inner-wrap {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    padding: 0.5em 1em !important;
   }
   
-  /* Force the menu to take full width */
-  .masthead__menu {
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  
-  /* Style the navigation to be horizontal */
+  /* Style the greedy nav */
   .greedy-nav {
-    min-width: 100% !important;
+    min-width: 0 !important;
     width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
     display: flex !important;
-    justify-content: center !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-  }
-  
-  /* Override any display:none on the navigation menu */
-  .greedy-nav .visible-links {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: center !important;
+    justify-content: space-between !important;
     align-items: center !important;
-    width: 100% !important;
-    padding: 0.5em 0 !important;
-    margin: 0 !important;
-    overflow-x: auto !important;
   }
   
-  /* Make all menu items visible */
-  .greedy-nav .visible-links li {
-    display: inline-block !important;
-    margin: 0 0.75em !important;
-    white-space: nowrap !important;
-  }
-  
-  /* Hide the site title on mobile to save space */
-  .greedy-nav .visible-links li.masthead__menu-item--lg {
-    display: none !important;
-  }
-  
-  /* Style the links */
-  .greedy-nav a {
-    display: inline-block !important;
-    padding: 0.5em 0 !important;
-    margin: 0 !important;
-    font-size: 0.9em !important;
-  }
-  
-  /* Hide the hamburger button */
-  .greedy-nav button {
-    display: none !important;
-  }
-  
-  /* Make sure the theme toggle is positioned correctly */
-  #theme-toggle {
+  /* Hide the main navigation menu on mobile */
+  .greedy-nav .visible-links {
     position: absolute !important;
-    right: 0.5em !important;
-    top: 0.5em !important;
+    top: -9999px !important; /* Hide off-screen instead of display:none */
+    left: 0 !important;
   }
   
-  /* Ensure hidden links stay hidden */
+  /* Only show the theme toggle and hamburger button */
+  .greedy-nav .visible-links li.tail,
+  .greedy-nav button {
+    position: static !important;
+    display: block !important;
+  }
+  
+  /* Make the hamburger button more visible */
+  .greedy-nav button {
+    height: 40px !important;
+    width: 40px !important;
+    background-color: transparent !important;
+    border: 1px solid var(--global-border-color) !important;
+    border-radius: 3px !important;
+    margin-right: 0.5em !important;
+  }
+  
+  /* Style the navicon (hamburger) */
+  .navicon {
+    width: 18px !important;
+    height: 2px !important;
+    background: var(--global-text-color) !important;
+    position: relative !important;
+    margin: auto !important;
+  }
+  
+  .navicon:before,
+  .navicon:after {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 2px !important;
+    background: var(--global-text-color) !important;
+  }
+  
+  .navicon:before {
+    top: -6px !important;
+  }
+  
+  .navicon:after {
+    bottom: -6px !important;
+  }
+  
+  /* Position the theme toggle button */
+  #theme-toggle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: auto !important;
+    margin-right: 0.5em !important;
+    height: 40px !important;
+    width: 40px !important;
+    border: 1px solid var(--global-border-color) !important;
+    border-radius: 3px !important;
+  }
+  
+  /* Display the hidden links when button is hovered/focused */
+  .greedy-nav:hover .hidden-links,
+  .greedy-nav:focus-within .hidden-links,
+  .greedy-nav button:hover + .hidden-links,
+  .greedy-nav button:focus + .hidden-links {
+    display: block !important;
+  }
+  
+  /* Style the hidden links dropdown */
   .greedy-nav .hidden-links {
     display: none !important;
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    left: 0 !important;
+    margin-top: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background-color: var(--global-bg-color) !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1) !important;
   }
   
-  /* Adjust body padding to account for fixed header */
-  body {
-    padding-top: 3em !important;
+  /* Style the navigation links */
+  .greedy-nav .hidden-links li {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    border-top: 1px solid var(--global-border-color) !important;
   }
   
-  /* Push page content down */
-  .page__content, .page__hero, .page__hero--overlay {
-    margin-top: 3em !important;
+  .greedy-nav .hidden-links a {
+    display: block !important;
+    width: 100% !important;
+    padding: 1em !important;
+    margin: 0 !important;
+    color: var(--global-text-color) !important;
+  }
+  
+  /* Remove arrow indicators */
+  .greedy-nav .hidden-links:before,
+  .greedy-nav .hidden-links:after {
+    display: none !important;
   }
 }
-
-  
- 
