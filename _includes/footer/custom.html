@@ -1,3 +1,26 @@
 <!-- start custom footer snippets -->
 <a href="/sitemap/">Sitemap</a>
 <!-- end custom footer snippets -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let lastScrollTop = 0;
+    const navToggle = document.querySelector(".greedy-nav button");
+
+    if (!navToggle) return;
+
+    window.addEventListener("scroll", function () {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (scrollTop > lastScrollTop) {
+        navToggle.style.opacity = "0";
+        navToggle.style.pointerEvents = "none";
+      } else {
+        navToggle.style.opacity = "1";
+        navToggle.style.pointerEvents = "auto";
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+  });
+</script>
