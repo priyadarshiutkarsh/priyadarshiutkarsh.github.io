@@ -47,95 +47,106 @@
 
 /* Mobile navigation fixes */
 @media screen and (max-width: 767px) {
-  /* Fix the masthead */
+  /* Force the masthead to be visible and properly positioned */
   .masthead {
-    position: relative;
-    width: 100%;
-    padding: 0;
-    margin: 0;
+    display: block !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    z-index: 1000 !important;
+    background-color: var(--global-bg-color) !important;
+    border-bottom: 1px solid var(--global-border-color) !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
   
-  /* Set the inner wrap to full width */
+  /* Force the masthead inner wrap to take full width */
   .masthead__inner-wrap {
-    width: 100%;
-    max-width: 100%;
-    padding: 0;
-    margin: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   
-  /* Make the menu full width */
+  /* Force the menu to take full width */
   .masthead__menu {
-    width: 100%;
-    padding: 0;
-    margin: 0;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   
-  /* Fix the greedy-nav container */
+  /* Style the navigation to be horizontal */
   .greedy-nav {
-    width: 100%;
-    min-width: 100%;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
+    min-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
   }
   
-  /* Fix the visible links to show in a single row */
+  /* Override any display:none on the navigation menu */
   .greedy-nav .visible-links {
     display: flex !important;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
-    padding: 0.5em 0;
-    margin: 0 auto;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 0.5em 0 !important;
+    margin: 0 !important;
+    overflow-x: auto !important;
   }
   
-  /* Make each menu item display inline */
+  /* Make all menu items visible */
   .greedy-nav .visible-links li {
-    display: inline-block;
-    padding: 0;
-    margin: 0 0.5em;
+    display: inline-block !important;
+    margin: 0 0.75em !important;
+    white-space: nowrap !important;
   }
   
-  /* Hide site title on mobile */
+  /* Hide the site title on mobile to save space */
   .greedy-nav .visible-links li.masthead__menu-item--lg {
     display: none !important;
   }
   
-  /* Set proper link styling */
+  /* Style the links */
   .greedy-nav a {
-    margin: 0;
-    padding: 0.25em 0.5em;
+    display: inline-block !important;
+    padding: 0.5em 0 !important;
+    margin: 0 !important;
+    font-size: 0.9em !important;
   }
   
-  /* Fix positioning of the toggle button */
+  /* Hide the hamburger button */
   .greedy-nav button {
-    display: none; /* Hide button since we're showing all nav items */
+    display: none !important;
   }
   
-  /* Ensure content has proper spacing */
-  .page__content {
-    margin-top: 1em;
-  }
-  
-  /* Fix the theme toggle position */
+  /* Make sure the theme toggle is positioned correctly */
   #theme-toggle {
-    position: absolute;
-    right: 1em;
-    top: 0.75em;
+    position: absolute !important;
+    right: 0.5em !important;
+    top: 0.5em !important;
   }
   
-  /* Fix the hidden links behavior */
+  /* Ensure hidden links stay hidden */
   .greedy-nav .hidden-links {
     display: none !important;
   }
   
-  /* Add a proper container for the navigation */
-  body::before {
-    content: "";
-    display: block;
-    height: 1em;
+  /* Adjust body padding to account for fixed header */
+  body {
+    padding-top: 3em !important;
+  }
+  
+  /* Push page content down */
+  .page__content, .page__hero, .page__hero--overlay {
+    margin-top: 3em !important;
   }
 }
 
