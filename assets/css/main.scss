@@ -45,144 +45,126 @@
     "layout/mobile-nav"
 ;
 
-/* Mobile navigation fixes - updated positioning */
+/* Override for mobile navigation */
 @media only screen and (max-width: 767px) {
-  /* Add the mobile nav bar with pure CSS - reversed icon order */
-  body:before {
-    content: "☼ ≡";
-    display: block !important;
-    position: fixed !important;
-    top: 0 !important;
-    right: 0 !important;
-    width: 100px !important;
-    height: 50px !important;
-    background-color: var(--global-bg-color) !important;
-    color: var(--global-text-color) !important;
-    font-size: 30px !important;
-    line-height: 50px !important;
-    text-align: right !important;
-    padding-right: 20px !important;
-    z-index: 9999 !important;
-    pointer-events: none !important;
-    letter-spacing: 15px !important;
-  }
-  
-  /* Add a black bar across the top */
-  body:after {
-    content: "";
-    display: block !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 50px !important;
-    background-color: var(--global-bg-color) !important;
-    border-bottom: 1px solid var(--global-border-color) !important;
-    z-index: 9998 !important;
-  }
-  
-  /* Add padding to the body */
+  /* Basic mobile styling */
   body {
-    padding-top: 50px !important;
+    padding-top: 60px;
   }
   
-  /* Reposition the masthead */
+  /* Fix the masthead position */
   .masthead {
-    position: fixed !important;
-    top: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    height: 50px !important;
-    z-index: 10000 !important;
-    border: none !important;
-    background: transparent !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--global-bg-color);
+    z-index: 1000;
+    height: 60px;
+    border-bottom: 1px solid var(--global-border-color);
   }
   
-  /* Make masthead inner visible */
+  /* Style the inner container */
   .masthead__inner-wrap {
-    display: flex !important;
-    justify-content: flex-end !important;
-    height: 50px !important;
-    padding: 0 !important;
-    margin: 0 !important;
+    padding: 0;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 60px;
   }
   
-  /* Show the menu */
+  /* Full width menu */
   .masthead__menu {
-    display: flex !important;
-    justify-content: flex-end !important;
-    height: 50px !important;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
   }
   
-  /* Style the greedy nav */
+  /* Adjust the greedy nav */
   .greedy-nav {
-    display: flex !important;
-    justify-content: flex-end !important;
-    min-width: 0 !important;
-    width: auto !important;
-    background: transparent !important;
+    background: transparent;
+    width: auto;
+    min-width: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
   
-  /* Hide the regular navigation links */
+  /* Hide all normal navigation items */
   .greedy-nav .visible-links li:not(.tail) {
-    display: none !important;
+    display: none;
   }
   
-  /* Position the hamburger button correctly */
-  .greedy-nav button {
-    position: relative !important;
-    display: block !important;
-    width: 50px !important;
-    height: 50px !important;
-    background: transparent !important;
-    border: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    right: 10px !important;
-    z-index: 10001 !important;
-  }
-  
-  /* Hide the navicon as we're showing the text character instead */
-  .navicon, .navicon:before, .navicon:after {
-    background: transparent !important;
-  }
-  
-  /* Show the theme toggle button */
-  .greedy-nav .visible-links #theme-toggle {
-    display: block !important;
-    margin-right: 15px !important;
-    width: 40px !important;
-    height: 50px !important;
-  }
-  
-  /* Make theme toggle show up properly */
-  #theme-toggle {
-    position: relative !important;
-    z-index: 10001 !important;
-  }
-  
-  /* Position the theme toggle */
+  /* Show the theme toggle */
   .greedy-nav .visible-links li.tail {
-    display: block !important;
-    order: 1 !important;
-    height: 50px !important;
-    display: flex !important;
-    align-items: center !important;
+    display: block;
   }
   
-  /* Position the toggle before the hamburger menu */
-  .greedy-nav .visible-links li.tail {
-    margin-right: 0 !important;
-  }
-  
-  /* Hide hidden links */
-  .greedy-nav .hidden-links {
-    right: 0 !important;
-    top: 50px !important;
-  }
-  
-  /* Hide site title in the menu */
+  /* Ensure logo is hidden */
   .greedy-nav .visible-links li.masthead__menu-item--lg {
-    display: none !important;
+    display: none;
+  }
+  
+  /* Fix the button positions */
+  .greedy-nav button {
+    display: block;
+    position: relative;
+    height: 60px;
+    width: 60px;
+    background: transparent;
+    border: none;
+    right: auto;
+    order: 3;
+  }
+  
+  /* Proper styling for hamburger */
+  .navicon {
+    background: var(--global-text-color);
+    height: 2px;
+    width: 20px;
+    position: relative;
+    transition: background 0.2s ease-out;
+  }
+  
+  .navicon:before,
+  .navicon:after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--global-text-color);
+    position: absolute;
+    left: 0;
+    transition: all 0.2s ease-out;
+  }
+  
+  .navicon:before {
+    top: -6px;
+  }
+  
+  .navicon:after {
+    bottom: -6px;
+  }
+  
+  /* Custom styles for theme toggle */
+  #theme-toggle {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 40px;
+  }
+  
+  /* Fix icon in theme toggle */
+  #theme-toggle i {
+    font-size: 20px;
+  }
+  
+  /* Adjust dropdown menu position */
+  .greedy-nav .hidden-links {
+    top: 60px;
+    right: 0;
   }
 }
