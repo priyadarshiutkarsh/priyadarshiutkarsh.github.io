@@ -45,123 +45,108 @@
     "layout/mobile-nav"
 ;
 
-/* iPhone-specific navigation fixes */
+/* Cross-platform mobile navigation fixes */
 @media screen and (max-width: 767px) {
+  /* Force mobile-specific styling */
+  html, body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+  
   /* Add space at the top for the navigation bar */
   body {
     padding-top: 60px !important;
+    margin-top: 0 !important;
   }
   
-  /* Move the header line down a bit */
-  body::before {
-    content: "";
-    position: fixed;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: var(--global-border-color);
-    z-index: 1000;
-  }
-  
-  /* Create a new fixed header specifically for mobile */
-  body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background-color: var(--global-bg-color);
-    z-index: 999;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Hide the default masthead */
+  /* Remove original masthead */
   .masthead {
     display: none !important;
   }
   
-  /* Add custom mobile navigation styling */
-  .page {
-    position: relative;
+  /* Create mobile header container */
+  .mobile-header {
+    display: block !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 60px !important;
+    background-color: var(--global-bg-color) !important;
+    z-index: 9999 !important;
+    border-bottom: 1px solid var(--global-border-color) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
   }
   
-  /* Create a mobile navigation bar with icons using pseudo-elements and CSS-only approach */
-  .page::before {
-    content: "☰";
-    position: fixed;
-    top: 0;
-    left: 20px;
-    font-size: 24px;
-    line-height: 60px;
-    color: var(--global-text-color);
-    z-index: 1001;
-    cursor: pointer;
+  /* Site title in mobile header */
+  .mobile-site-title {
+    position: absolute !important;
+    left: 20px !important;
+    top: 0 !important;
+    height: 60px !important;
+    line-height: 60px !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    color: var(--global-text-color) !important;
+    max-width: 60% !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
   }
   
-  /* Add theme toggle moon icon */
-  .page::after {
-    content: "☾";
-    position: fixed;
-    top: 0;
-    right: 20px;
-    font-size: 24px;
-    line-height: 60px;
-    color: var(--global-text-color);
-    z-index: 1001;
-    cursor: pointer;
+  /* Theme toggle icon */
+  .mobile-theme-toggle {
+    position: absolute !important;
+    right: 60px !important;
+    top: 0 !important;
+    width: 40px !important;
+    height: 60px !important;
+    line-height: 60px !important;
+    text-align: center !important;
+    font-size: 24px !important;
+    color: var(--global-text-color) !important;
+    cursor: pointer !important;
   }
   
-  /* Add site title to the mobile header */
-  .breadcrumbs::before {
-    content: "Utkarsh Priyadarshi";
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 60px;
-    color: var(--global-text-color);
-    z-index: 1000;
-    pointer-events: none;
+  /* Hamburger menu icon */
+  .mobile-menu-toggle {
+    position: absolute !important;
+    right: 20px !important;
+    top: 0 !important;
+    width: 40px !important;
+    height: 60px !important;
+    line-height: 60px !important;
+    text-align: center !important;
+    font-size: 24px !important;
+    color: var(--global-text-color) !important;
+    cursor: pointer !important;
   }
   
   /* Ensure content starts below the fixed header */
   .page__content,
   .page__meta,
-  .page__share {
+  .page__share,
+  .page__hero,
+  .page__hero--overlay {
     margin-top: 20px !important;
   }
   
-  /* Style for dropdown navigation menu (appears when hamburger is clicked) */
-  .mobile-nav-menu {
-    display: none;
-    position: fixed;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background-color: var(--global-bg-color);
-    border-bottom: 1px solid var(--global-border-color);
-    z-index: 998;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Add these elements to the HTML using ::before pseudo-elements */
+  body::before {
+    content: "<div class='mobile-header'><div class='mobile-site-title'>Utkarsh Priyadarshi</div><div class='mobile-theme-toggle'>☾</div><div class='mobile-menu-toggle'>☰</div></div>";
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+    display: block !important;
   }
   
-  .mobile-nav-menu a {
-    display: block;
-    padding: 15px 20px;
-    border-top: 1px solid var(--global-border-color);
-    color: var(--global-text-color);
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-  }
-  
-  /* Add extra bottom padding to account for the fixed header */
-  .page__footer {
-    margin-top: 30px;
-    padding-bottom: 30px;
+  /* Force display of mobile elements created with ::before */
+  .mobile-header,
+  .mobile-site-title,
+  .mobile-theme-toggle,
+  .mobile-menu-toggle {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 }
