@@ -1,29 +1,40 @@
+/* ==========================================================================
+   Mobile Navigation Fixes
+   ========================================================================== */
+
 @media screen and (max-width: 767px) {
-  .greedy-nav {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+  /* Hamburger icon positioned ABOVE the nav */
+  .hamburger-top {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.75rem 1rem;
+    background: var(--global-bg-color);
+    z-index: 1001;
     position: relative;
 
     button {
-      position: absolute;
-      top: 0.75rem;
-      right: 0.75rem;
-      width: 36px;
-      height: 36px;
       background: none;
       border: none;
       cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 1000;
-    }
 
-    button svg {
-      width: 24px;
-      height: 24px;
-      fill: var(--global-text-color);
+      svg {
+        width: 24px;
+        height: 24px;
+        fill: var(--global-masthead-link-color); // adapts to theme
+      }
+
+      &:hover svg {
+        fill: var(--global-masthead-link-color-hover);
+      }
     }
+  }
+
+  .greedy-nav {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
 
     .visible-links {
       display: none;
@@ -60,6 +71,10 @@
         font-size: 1.25rem;
       }
     }
+
+    button {
+      display: none; // hide in mobile if using .hamburger-top
+    }
   }
 }
 
@@ -75,10 +90,12 @@
   }
 }
 
+/* Prevent nav flickering */
 .greedy-nav .visible-links {
   transition: none !important;
 }
 
+/* Ensure dropdown nav stays above all elements */
 .greedy-nav .hidden-links {
   z-index: 9999;
 }
