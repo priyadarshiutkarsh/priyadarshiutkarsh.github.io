@@ -47,115 +47,97 @@
 
 /* Mobile navigation fixes */
 @media screen and (max-width: 767px) {
-  /* Fix the masthead to match the original template */
+  /* Fix the masthead */
   .masthead {
     position: relative;
-    top: 0;
     width: 100%;
-    z-index: 20;
-    background-color: var(--global-bg-color);
+    padding: 0;
+    margin: 0;
   }
   
-  /* Create a horizontal navigation bar */
+  /* Set the inner wrap to full width */
   .masthead__inner-wrap {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Make the menu full width */
+  .masthead__menu {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Fix the greedy-nav container */
+  .greedy-nav {
+    width: 100%;
+    min-width: 100%;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 0.5em;
   }
   
-  /* Style the navigation menu like the original template */
-  nav.greedy-nav {
-    width: 100%;
-    background-color: var(--global-bg-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  /* Create a horizontal menu */
+  /* Fix the visible links to show in a single row */
   .greedy-nav .visible-links {
     display: flex !important;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
     width: 100%;
-    background-color: var(--global-bg-color);
-    border-top: 1px solid var(--global-border-color);
     padding: 0.5em 0;
-    margin-top: 1em;
+    margin: 0 auto;
   }
   
-  /* Style each menu item */
+  /* Make each menu item display inline */
   .greedy-nav .visible-links li {
     display: inline-block;
-    text-align: center;
+    padding: 0;
     margin: 0 0.5em;
   }
   
-  /* Put the title in the center */
+  /* Hide site title on mobile */
   .greedy-nav .visible-links li.masthead__menu-item--lg {
-    width: 100%;
-    text-align: center;
-    order: -1;
-    margin-bottom: 0.5em;
+    display: none !important;
   }
   
-  /* Adjust the link styling */
-  .greedy-nav .visible-links li a {
-    padding: 0.25em;
+  /* Set proper link styling */
+  .greedy-nav a {
     margin: 0;
-    font-size: 1em;
+    padding: 0.25em 0.5em;
   }
   
-  /* Position the theme toggle */
+  /* Fix positioning of the toggle button */
+  .greedy-nav button {
+    display: none; /* Hide button since we're showing all nav items */
+  }
+  
+  /* Ensure content has proper spacing */
+  .page__content {
+    margin-top: 1em;
+  }
+  
+  /* Fix the theme toggle position */
   #theme-toggle {
     position: absolute;
     right: 1em;
-    top: 1em;
+    top: 0.75em;
   }
   
-  /* Style the site title */
-  .greedy-nav .visible-links li.masthead__menu-item--lg a {
-    font-size: 1.2em;
-    font-weight: bold;
-  }
-  
-  /* Fix the hamburger menu button */
-  .greedy-nav button {
-    position: absolute;
-    right: 1em;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 2em;
-    width: 2em;
-    padding: 0;
-    display: none; /* Hide the button as we're showing all items */
-  }
-  
-  /* Add horizontal lines between navigation items */
-  .greedy-nav .visible-links li:not(.masthead__menu-item--lg):not(.tail)::after {
-    content: "";
-    width: 1px;
-    height: 1em;
-    background-color: var(--global-border-color);
-    position: absolute;
-    right: -0.5em;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  
-  /* Add extra spacing after the navigation */
-  .masthead::after {
-    margin-top: 0.5em;
-  }
-  
-  /* Remove the button hiding mechanism for the navigation */
+  /* Fix the hidden links behavior */
   .greedy-nav .hidden-links {
     display: none !important;
   }
   
-  /* Fix content padding */
-  .page__content {
-    padding-top: 1em;
+  /* Add a proper container for the navigation */
+  body::before {
+    content: "";
+    display: block;
+    height: 1em;
   }
 }
+
+  
+ 
