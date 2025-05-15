@@ -45,40 +45,76 @@
     "layout/mobile-nav"
 ;
 
-/* Mobile-specific navigation fixes */
+/* Mobile navigation fixes */
 @media screen and (max-width: 600px) {
+  /* Fix masthead position */
   .masthead {
-    position: relative; /* Change from fixed to relative on mobile */
-    top: auto;
+    position: relative;
+    top: 0;
+    width: 100%;
+    z-index: 20;
   }
   
+  /* Make links display horizontally at the top */
+  .masthead__inner-wrap {
+    padding: 0.5em;
+  }
+  
+  /* Fix the greedy nav positioning */
   .greedy-nav {
-    /* Improve mobile navigation display */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .greedy-nav .visible-links {
-    /* Adjust the visible links for mobile */
-    display: flex;
+    min-width: auto;
     width: 100%;
   }
   
+  /* Make the menu horizontal */
+  .greedy-nav .visible-links {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Style the menu items */
   .greedy-nav .visible-links li {
-    /* Make each navigation item display properly */
     display: inline-block;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Adjust the link styling */
+  .greedy-nav a {
     padding: 0.25em 0;
+    margin: 0 0.5em;
+    font-size: 0.9em;
   }
   
-  /* Ensure content doesn't hide under the navigation */
-  .page__content {
-    margin-top: 1em;
+  /* Hide title on mobile for more space */
+  .masthead__menu-item--lg {
+    display: none !important;
   }
   
-  /* Make the navigation button more visible on mobile */
+  /* Adjust the button position */
   .greedy-nav button {
-    height: 100%;
-    align-self: center;
+    position: absolute;
+    right: 0.5em;
+    top: 0.25em;
+    height: 2em;
+    width: 2em;
+    padding: 0;
+  }
+  
+  /* Fix content spacing */
+  .page__content {
+    margin-top: 0;
+  }
+  
+  /* Fix theme toggle positioning */
+  #theme-toggle {
+    position: absolute;
+    right: 2.5em;
+    top: 0.25em;
   }
 }
