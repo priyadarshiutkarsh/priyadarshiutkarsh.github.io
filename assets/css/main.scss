@@ -45,11 +45,11 @@
     "layout/mobile-nav"
 ;
 
-/* Mobile navigation fixes - direct approach */
+/* Mobile navigation fixes - updated positioning */
 @media only screen and (max-width: 767px) {
-  /* Add the mobile nav bar with pure CSS */
+  /* Add the mobile nav bar with pure CSS - reversed icon order */
   body:before {
-    content: "≡ ☼";
+    content: "☼ ≡";
     display: block !important;
     position: fixed !important;
     top: 0 !important;
@@ -86,58 +86,103 @@
     padding-top: 50px !important;
   }
   
-  /* Hide all masthead elements */
+  /* Reposition the masthead */
   .masthead {
     position: fixed !important;
     top: 0 !important;
     right: 0 !important;
-    width: 100px !important;
+    width: 100% !important;
     height: 50px !important;
-    background: transparent !important;
     z-index: 10000 !important;
     border: none !important;
+    background: transparent !important;
   }
   
-  /* Hide the masthead content */
-  .masthead__inner-wrap,
-  .masthead__menu,
-  .greedy-nav .visible-links {
+  /* Make masthead inner visible */
+  .masthead__inner-wrap {
+    display: flex !important;
+    justify-content: flex-end !important;
+    height: 50px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  /* Show the menu */
+  .masthead__menu {
+    display: flex !important;
+    justify-content: flex-end !important;
+    height: 50px !important;
+  }
+  
+  /* Style the greedy nav */
+  .greedy-nav {
+    display: flex !important;
+    justify-content: flex-end !important;
+    min-width: 0 !important;
+    width: auto !important;
+    background: transparent !important;
+  }
+  
+  /* Hide the regular navigation links */
+  .greedy-nav .visible-links li:not(.tail) {
     display: none !important;
   }
   
-  /* Make only the button and theme toggle clickable */
-  .greedy-nav button,
-  #theme-toggle {
-    position: fixed !important;
+  /* Position the hamburger button correctly */
+  .greedy-nav button {
+    position: relative !important;
     display: block !important;
-    opacity: 0 !important; /* Make them invisible but clickable */
-    z-index: 10001 !important;
-    width: 40px !important;
+    width: 50px !important;
     height: 50px !important;
-    top: 0 !important;
-    cursor: pointer !important;
+    background: transparent !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    right: 10px !important;
+    z-index: 10001 !important;
+  }
+  
+  /* Hide the navicon as we're showing the text character instead */
+  .navicon, .navicon:before, .navicon:after {
     background: transparent !important;
   }
   
-  /* Position the hamburger button */
-  .greedy-nav button {
-    right: 10px !important;
+  /* Show the theme toggle button */
+  .greedy-nav .visible-links #theme-toggle {
+    display: block !important;
+    margin-right: 15px !important;
+    width: 40px !important;
+    height: 50px !important;
+  }
+  
+  /* Make theme toggle show up properly */
+  #theme-toggle {
+    position: relative !important;
+    z-index: 10001 !important;
   }
   
   /* Position the theme toggle */
-  #theme-toggle {
-    right: 60px !important;
+  .greedy-nav .visible-links li.tail {
+    display: block !important;
+    order: 1 !important;
+    height: 50px !important;
+    display: flex !important;
+    align-items: center !important;
   }
   
-  /* Move the horizontal line down */
-  .masthead:after {
-    content: "" !important;
-    position: fixed !important;
+  /* Position the toggle before the hamburger menu */
+  .greedy-nav .visible-links li.tail {
+    margin-right: 0 !important;
+  }
+  
+  /* Hide hidden links */
+  .greedy-nav .hidden-links {
+    right: 0 !important;
     top: 50px !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 1px !important;
-    background-color: var(--global-border-color) !important;
-    z-index: 9999 !important;
+  }
+  
+  /* Hide site title in the menu */
+  .greedy-nav .visible-links li.masthead__menu-item--lg {
+    display: none !important;
   }
 }
