@@ -45,143 +45,123 @@
     "layout/mobile-nav"
 ;
 
-/* Mobile navigation fixes - CSS only approach */
+/* iPhone-specific navigation fixes */
 @media screen and (max-width: 767px) {
-  /* Fix masthead position */
-  .masthead {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    z-index: 1000 !important;
-    background-color: var(--global-bg-color) !important;
-  }
-  
-  /* Add space for fixed header */
+  /* Add space at the top for the navigation bar */
   body {
-    padding-top: 50px !important;
+    padding-top: 60px !important;
   }
   
-  /* Adjust container size */
-  .masthead__inner-wrap {
-    padding: 0.5em 1em !important;
+  /* Move the header line down a bit */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--global-border-color);
+    z-index: 1000;
   }
   
-  /* Style the greedy nav */
-  .greedy-nav {
-    min-width: 0 !important;
-    width: 100% !important;
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
+  /* Create a new fixed header specifically for mobile */
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: var(--global-bg-color);
+    z-index: 999;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   
-  /* Hide the main navigation menu on mobile */
-  .greedy-nav .visible-links {
-    position: absolute !important;
-    top: -9999px !important; /* Hide off-screen instead of display:none */
-    left: 0 !important;
-  }
-  
-  /* Only show the theme toggle and hamburger button */
-  .greedy-nav .visible-links li.tail,
-  .greedy-nav button {
-    position: static !important;
-    display: block !important;
-  }
-  
-  /* Make the hamburger button more visible */
-  .greedy-nav button {
-    height: 40px !important;
-    width: 40px !important;
-    background-color: transparent !important;
-    border: 1px solid var(--global-border-color) !important;
-    border-radius: 3px !important;
-    margin-right: 0.5em !important;
-  }
-  
-  /* Style the navicon (hamburger) */
-  .navicon {
-    width: 18px !important;
-    height: 2px !important;
-    background: var(--global-text-color) !important;
-    position: relative !important;
-    margin: auto !important;
-  }
-  
-  .navicon:before,
-  .navicon:after {
-    content: "" !important;
-    position: absolute !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 2px !important;
-    background: var(--global-text-color) !important;
-  }
-  
-  .navicon:before {
-    top: -6px !important;
-  }
-  
-  .navicon:after {
-    bottom: -6px !important;
-  }
-  
-  /* Position the theme toggle button */
-  #theme-toggle {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin-left: auto !important;
-    margin-right: 0.5em !important;
-    height: 40px !important;
-    width: 40px !important;
-    border: 1px solid var(--global-border-color) !important;
-    border-radius: 3px !important;
-  }
-  
-  /* Display the hidden links when button is hovered/focused */
-  .greedy-nav:hover .hidden-links,
-  .greedy-nav:focus-within .hidden-links,
-  .greedy-nav button:hover + .hidden-links,
-  .greedy-nav button:focus + .hidden-links {
-    display: block !important;
-  }
-  
-  /* Style the hidden links dropdown */
-  .greedy-nav .hidden-links {
+  /* Hide the default masthead */
+  .masthead {
     display: none !important;
-    position: absolute !important;
-    top: 100% !important;
-    right: 0 !important;
-    left: 0 !important;
-    margin-top: 0 !important;
-    padding: 0 !important;
-    border: none !important;
-    border-radius: 0 !important;
-    background-color: var(--global-bg-color) !important;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1) !important;
   }
   
-  /* Style the navigation links */
-  .greedy-nav .hidden-links li {
-    display: block !important;
-    width: 100% !important;
-    text-align: center !important;
-    border-top: 1px solid var(--global-border-color) !important;
+  /* Add custom mobile navigation styling */
+  .page {
+    position: relative;
   }
   
-  .greedy-nav .hidden-links a {
-    display: block !important;
-    width: 100% !important;
-    padding: 1em !important;
-    margin: 0 !important;
-    color: var(--global-text-color) !important;
+  /* Create a mobile navigation bar with icons using pseudo-elements and CSS-only approach */
+  .page::before {
+    content: "☰";
+    position: fixed;
+    top: 0;
+    left: 20px;
+    font-size: 24px;
+    line-height: 60px;
+    color: var(--global-text-color);
+    z-index: 1001;
+    cursor: pointer;
   }
   
-  /* Remove arrow indicators */
-  .greedy-nav .hidden-links:before,
-  .greedy-nav .hidden-links:after {
-    display: none !important;
+  /* Add theme toggle moon icon */
+  .page::after {
+    content: "☾";
+    position: fixed;
+    top: 0;
+    right: 20px;
+    font-size: 24px;
+    line-height: 60px;
+    color: var(--global-text-color);
+    z-index: 1001;
+    cursor: pointer;
+  }
+  
+  /* Add site title to the mobile header */
+  .breadcrumbs::before {
+    content: "Utkarsh Priyadarshi";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 60px;
+    color: var(--global-text-color);
+    z-index: 1000;
+    pointer-events: none;
+  }
+  
+  /* Ensure content starts below the fixed header */
+  .page__content,
+  .page__meta,
+  .page__share {
+    margin-top: 20px !important;
+  }
+  
+  /* Style for dropdown navigation menu (appears when hamburger is clicked) */
+  .mobile-nav-menu {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: var(--global-bg-color);
+    border-bottom: 1px solid var(--global-border-color);
+    z-index: 998;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mobile-nav-menu a {
+    display: block;
+    padding: 15px 20px;
+    border-top: 1px solid var(--global-border-color);
+    color: var(--global-text-color);
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  /* Add extra bottom padding to account for the fixed header */
+  .page__footer {
+    margin-top: 30px;
+    padding-bottom: 30px;
   }
 }
