@@ -47,101 +47,115 @@
 
 /* Mobile navigation fixes */
 @media screen and (max-width: 767px) {
-  /* Create a fixed navigation bar at the top */
+  /* Fix the masthead to match the original template */
   .masthead {
-    position: fixed;
+    position: relative;
     top: 0;
     width: 100%;
-    z-index: 999;
+    z-index: 20;
     background-color: var(--global-bg-color);
   }
   
-  /* Move page content down to accommodate the fixed header */
-  .page {
-    padding-top: 5em;
+  /* Create a horizontal navigation bar */
+  .masthead__inner-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5em;
   }
   
-  /* Make sure the main navigation menu appears at the top */
+  /* Style the navigation menu like the original template */
   nav.greedy-nav {
+    width: 100%;
+    background-color: var(--global-bg-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.25em 0;
   }
   
-  /* Position the toggle button properly */
-  .greedy-nav button {
-    position: relative;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 2em;
-    margin-right: 0.5em;
-  }
-  
-  /* Style the navicon (hamburger) */
-  .navicon {
-    width: 1.5em;
-    height: 0.25em;
-    background: var(--global-text-color);
-    position: relative;
-  }
-  
-  .navicon::before,
-  .navicon::after {
-    content: "";
-    width: 1.5em;
-    height: 0.25em;
-    background: var(--global-text-color);
-    position: absolute;
-    left: 0;
-  }
-  
-  .navicon::before {
-    top: -0.5em;
-  }
-  
-  .navicon::after {
-    bottom: -0.5em;
-  }
-  
-  /* Fix visible links positioning */
+  /* Create a horizontal menu */
   .greedy-nav .visible-links {
-    position: fixed;
-    top: 3em;
-    left: 0;
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
     width: 100%;
     background-color: var(--global-bg-color);
-    border-bottom: 1px solid var(--global-border-color);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    border-top: 1px solid var(--global-border-color);
     padding: 0.5em 0;
+    margin-top: 1em;
   }
   
-  /* Style navigation items */
+  /* Style each menu item */
   .greedy-nav .visible-links li {
     display: inline-block;
     text-align: center;
+    margin: 0 0.5em;
   }
   
-  /* Hide the site title on small screens - show only navigation */
+  /* Put the title in the center */
   .greedy-nav .visible-links li.masthead__menu-item--lg {
-    display: none;
+    width: 100%;
+    text-align: center;
+    order: -1;
+    margin-bottom: 0.5em;
   }
   
-  /* Make the links in the navigation menu more visible */
+  /* Adjust the link styling */
   .greedy-nav .visible-links li a {
     padding: 0.25em;
-    margin: 0 0.25em;
-    font-size: 0.9em;
+    margin: 0;
+    font-size: 1em;
   }
   
-  /* Position the theme toggle appropriately */
-  .greedy-nav .visible-links #theme-toggle {
+  /* Position the theme toggle */
+  #theme-toggle {
     position: absolute;
-    right: 3em;
-    top: 0.5em;
+    right: 1em;
+    top: 1em;
+  }
+  
+  /* Style the site title */
+  .greedy-nav .visible-links li.masthead__menu-item--lg a {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  /* Fix the hamburger menu button */
+  .greedy-nav button {
+    position: absolute;
+    right: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 2em;
+    width: 2em;
+    padding: 0;
+    display: none; /* Hide the button as we're showing all items */
+  }
+  
+  /* Add horizontal lines between navigation items */
+  .greedy-nav .visible-links li:not(.masthead__menu-item--lg):not(.tail)::after {
+    content: "";
+    width: 1px;
+    height: 1em;
+    background-color: var(--global-border-color);
+    position: absolute;
+    right: -0.5em;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  /* Add extra spacing after the navigation */
+  .masthead::after {
+    margin-top: 0.5em;
+  }
+  
+  /* Remove the button hiding mechanism for the navigation */
+  .greedy-nav .hidden-links {
+    display: none !important;
+  }
+  
+  /* Fix content padding */
+  .page__content {
+    padding-top: 1em;
   }
 }
