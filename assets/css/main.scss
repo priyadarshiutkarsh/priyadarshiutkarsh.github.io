@@ -45,139 +45,48 @@
     "layout/mobile-nav"
 ;
 
-/* Properly aligned mobile navigation */
-@media only screen and (max-width: 767px) {
-  /* Basic setup */
+/* Simple mobile navigation fix - desktop unchanged */
+@media screen and (max-width: 767px) {
+  /* Keep the original hamburger button where it is */
+  .greedy-nav button {
+    display: block !important;
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    z-index: 10 !important;
+    background: none !important;
+  }
+
+  /* Add a moon icon on mobile only */
+  .masthead:after {
+    content: "☾" !important;
+    position: absolute !important;
+    display: block !important;
+    top: 10px !important;
+    right: 60px !important;
+    font-size: 24px !important;
+    color: var(--global-text-color) !important;
+    z-index: 5 !important;
+    width: 40px !important;
+    height: 40px !important;
+    line-height: 40px !important;
+    text-align: center !important;
+    cursor: pointer !important;
+  }
+  
+  /* Fix page spacing */
   body {
     padding-top: 60px !important;
   }
   
-  /* Fixed masthead */
+  /* Fix masthead position */
   .masthead {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
     height: 60px !important;
-    width: 100% !important;
     background-color: var(--global-bg-color) !important;
-    border-bottom: 1px solid var(--global-border-color) !important;
     z-index: 1000 !important;
-  }
-  
-  /* Fix inner wrap */
-  .masthead__inner-wrap {
-    height: 60px !important;
-    padding: 0 !important;
-  }
-  
-  /* Adjust the menu container */
-  .masthead__menu {
-    height: 60px !important;
-    width: 100% !important;
-    position: relative !important;
-  }
-  
-  /* Style the navigation container */
-  .greedy-nav {
-    min-width: 0 !important;
-    width: 100% !important;
-    background: transparent !important;
-    height: 60px !important;
-  }
-  
-  /* Position the hamburger button at the rightmost position */
-  .greedy-nav button {
-    position: absolute !important;
-    top: 10px !important;
-    right: 10px !important;
-    width: 40px !important;
-    height: 40px !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    background: transparent !important;
-    border: none !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-  
-  /* Fix hamburger icon */
-  .navicon {
-    background-color: var(--global-text-color) !important;
-    display: block !important;
-    width: 20px !important;
-    height: 2px !important;
-    position: relative !important;
-  }
-  
-  .navicon:before,
-  .navicon:after {
-    content: "" !important;
-    display: block !important;
-    position: absolute !important;
-    width: 20px !important;
-    height: 2px !important;
-    background-color: var(--global-text-color) !important;
-    left: 0 !important;
-  }
-  
-  .navicon:before {
-    top: -6px !important;
-  }
-  
-  .navicon:after {
-    bottom: -6px !important;
-  }
-  
-  /* Position theme toggle to the left of hamburger menu */
-  #theme-toggle {
-    position: absolute !important;
-    top: 10px !important;
-    right: 60px !important; /* Position to the left of hamburger */
-    width: 40px !important;
-    height: 40px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    z-index: 1001 !important;
-  }
-  
-  /* Fix theme icon styling */
-  #theme-icon {
-    font-size: 24px !important;
-    display: block !important;
-  }
-  
-  /* Move theme toggle container */
-  .greedy-nav .visible-links li.tail {
-    position: absolute !important;
-    top: 10px !important;
-    right: 60px !important;
-    width: 40px !important;
-    height: 40px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  
-  /* Hide regular navigation links */
-  .greedy-nav .visible-links li:not(.tail) {
-    display: none !important;
-  }
-  
-  /* Set dropdown menu position */
-  .greedy-nav .hidden-links {
-    top: 60px !important;
-    right: 0 !important;
-  }
-  
-  /* Fix any border/line issues */
-  .masthead:after {
-    display: none !important;
-  }
-  
-  /* Remove any weird line at the top */
-  .masthead:before {
-    display: none !important;
   }
 }
