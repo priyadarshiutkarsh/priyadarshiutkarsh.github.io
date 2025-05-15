@@ -45,112 +45,70 @@
     "layout/mobile-nav"
 ;
 
-/* Fixed mobile navigation with properly aligned icons */
+/* Properly aligned mobile navigation */
 @media only screen and (max-width: 767px) {
-  /* Reset and basic settings */
+  /* Basic setup */
   body {
     padding-top: 60px !important;
   }
   
-  /* Fix the masthead */
+  /* Fixed masthead */
   .masthead {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
     height: 60px !important;
+    width: 100% !important;
     background-color: var(--global-bg-color) !important;
     border-bottom: 1px solid var(--global-border-color) !important;
     z-index: 1000 !important;
   }
   
-  /* Fix the inner wrap */
+  /* Fix inner wrap */
   .masthead__inner-wrap {
-    display: flex !important;
-    justify-content: flex-end !important;
-    align-items: center !important;
     height: 60px !important;
-    padding: 0 15px !important;
+    padding: 0 !important;
   }
   
   /* Adjust the menu container */
   .masthead__menu {
-    display: flex !important;
-    justify-content: flex-end !important;
-    align-items: center !important;
-    width: auto !important;
-  }
-  
-  /* Fix the navigation structure */
-  .greedy-nav {
-    background: transparent !important;
-    min-width: 0 !important;
-    width: auto !important;
-    display: flex !important;
-    justify-content: flex-end !important;
-    align-items: center !important;
-  }
-  
-  /* Fix the visible links */
-  .greedy-nav .visible-links {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    width: auto !important;
-  }
-  
-  /* Hide all regular navigation items */
-  .greedy-nav .visible-links li:not(.tail) {
-    display: none !important;
-  }
-  
-  /* Make theme toggle visible */
-  .greedy-nav .visible-links li.tail {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin-right: 15px !important;
-  }
-  
-  /* Fix the theme toggle button */
-  #theme-toggle {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 40px !important;
-    height: 40px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  
-  /* Fix the theme icon */
-  #theme-icon {
-    display: block !important;
-    font-size: 24px !important;
-    color: var(--global-text-color) !important;
-  }
-  
-  /* Fix the hamburger button */
-  .greedy-nav button {
+    height: 60px !important;
+    width: 100% !important;
     position: relative !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+  }
+  
+  /* Style the navigation container */
+  .greedy-nav {
+    min-width: 0 !important;
+    width: 100% !important;
+    background: transparent !important;
+    height: 60px !important;
+  }
+  
+  /* Position the hamburger button at the rightmost position */
+  .greedy-nav button {
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
     width: 40px !important;
     height: 40px !important;
+    padding: 0 !important;
+    margin: 0 !important;
     background: transparent !important;
     border: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
   
-  /* Fix the hamburger icon */
+  /* Fix hamburger icon */
   .navicon {
+    background-color: var(--global-text-color) !important;
     display: block !important;
-    position: relative !important;
     width: 20px !important;
     height: 2px !important;
-    background-color: var(--global-text-color) !important;
+    position: relative !important;
   }
   
   .navicon:before,
@@ -172,9 +130,54 @@
     bottom: -6px !important;
   }
   
-  /* Fix dropdown menu positioning */
+  /* Position theme toggle to the left of hamburger menu */
+  #theme-toggle {
+    position: absolute !important;
+    top: 10px !important;
+    right: 60px !important; /* Position to the left of hamburger */
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 1001 !important;
+  }
+  
+  /* Fix theme icon styling */
+  #theme-icon {
+    font-size: 24px !important;
+    display: block !important;
+  }
+  
+  /* Move theme toggle container */
+  .greedy-nav .visible-links li.tail {
+    position: absolute !important;
+    top: 10px !important;
+    right: 60px !important;
+    width: 40px !important;
+    height: 40px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Hide regular navigation links */
+  .greedy-nav .visible-links li:not(.tail) {
+    display: none !important;
+  }
+  
+  /* Set dropdown menu position */
   .greedy-nav .hidden-links {
     top: 60px !important;
     right: 0 !important;
+  }
+  
+  /* Fix any border/line issues */
+  .masthead:after {
+    display: none !important;
+  }
+  
+  /* Remove any weird line at the top */
+  .masthead:before {
+    display: none !important;
   }
 }
