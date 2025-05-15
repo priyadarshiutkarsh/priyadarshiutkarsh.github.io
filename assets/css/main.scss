@@ -45,9 +45,9 @@
     "layout/mobile-nav"
 ;
 
-/* Final mobile navigation fix */
+/* Fixed mobile navigation with properly aligned icons */
 @media only screen and (max-width: 767px) {
-  /* Basic setup for mobile */
+  /* Reset and basic settings */
   body {
     padding-top: 60px !important;
   }
@@ -58,48 +58,110 @@
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
-    width: 100% !important;
     height: 60px !important;
     background-color: var(--global-bg-color) !important;
     border-bottom: 1px solid var(--global-border-color) !important;
     z-index: 1000 !important;
   }
   
-  /* Position the hamburger menu button */
+  /* Fix the inner wrap */
+  .masthead__inner-wrap {
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    height: 60px !important;
+    padding: 0 15px !important;
+  }
+  
+  /* Adjust the menu container */
+  .masthead__menu {
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    width: auto !important;
+  }
+  
+  /* Fix the navigation structure */
+  .greedy-nav {
+    background: transparent !important;
+    min-width: 0 !important;
+    width: auto !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+  }
+  
+  /* Fix the visible links */
+  .greedy-nav .visible-links {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    width: auto !important;
+  }
+  
+  /* Hide all regular navigation items */
+  .greedy-nav .visible-links li:not(.tail) {
+    display: none !important;
+  }
+  
+  /* Make theme toggle visible */
+  .greedy-nav .visible-links li.tail {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-right: 15px !important;
+  }
+  
+  /* Fix the theme toggle button */
+  #theme-toggle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 40px !important;
+    height: 40px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Fix the theme icon */
+  #theme-icon {
+    display: block !important;
+    font-size: 24px !important;
+    color: var(--global-text-color) !important;
+  }
+  
+  /* Fix the hamburger button */
   .greedy-nav button {
-    position: absolute !important;
-    top: 10px !important;
-    right: 10px !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     width: 40px !important;
     height: 40px !important;
     background: transparent !important;
     border: none !important;
     padding: 0 !important;
     margin: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    z-index: 1002 !important;
   }
   
-  /* Style the hamburger icon */
+  /* Fix the hamburger icon */
   .navicon {
-    background-color: var(--global-text-color) !important;
-    height: 2px !important;
-    width: 20px !important;
+    display: block !important;
     position: relative !important;
-    transition: background 0.2s ease-out !important;
+    width: 20px !important;
+    height: 2px !important;
+    background-color: var(--global-text-color) !important;
   }
   
   .navicon:before,
   .navicon:after {
     content: "" !important;
     display: block !important;
-    background-color: var(--global-text-color) !important;
-    height: 2px !important;
-    width: 20px !important;
     position: absolute !important;
-    transition: all 0.2s ease-out !important;
+    width: 20px !important;
+    height: 2px !important;
+    background-color: var(--global-text-color) !important;
+    left: 0 !important;
   }
   
   .navicon:before {
@@ -110,55 +172,9 @@
     bottom: -6px !important;
   }
   
-  /* Add a custom sun icon for theme toggle */
-  .masthead:before {
-    content: "☀" !important;
-    position: absolute !important;
-    display: block !important;
-    top: 10px !important;
-    right: 60px !important;
-    width: 40px !important;
-    height: 40px !important;
-    font-size: 28px !important;
-    line-height: 40px !important;
-    text-align: center !important;
-    color: var(--global-text-color) !important;
-    cursor: pointer !important;
-    z-index: 1010 !important;
-  }
-  
-  /* Make the actual theme toggle button clickable but invisible */
-  #theme-toggle {
-    position: absolute !important;
-    top: 10px !important;
-    right: 60px !important;
-    width: 40px !important;
-    height: 40px !important;
-    opacity: 0 !important;
-    z-index: 1011 !important;
-    cursor: pointer !important;
-  }
-  
-  /* Hide the weird cross icon you mentioned */
-  .masthead:after,
-  .page:before,
-  .page:after {
-    content: none !important;
-    display: none !important;
-  }
-  
-  /* Hide all regular navigation items */
-  .greedy-nav .visible-links li:not(.tail) {
-    display: none !important;
-  }
-  
-  /* Position the dropdown menu */
+  /* Fix dropdown menu positioning */
   .greedy-nav .hidden-links {
     top: 60px !important;
     right: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    margin-top: 0 !important;
-    padding: 0 !important;
   }
 }
