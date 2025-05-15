@@ -46,75 +46,104 @@
 ;
 
 /* Mobile navigation fixes */
-@media screen and (max-width: 600px) {
-  /* Fix masthead position */
+@media screen and (max-width: 767px) {
+  /* Create a fixed navigation bar at the top */
   .masthead {
-    position: relative;
+    position: fixed;
     top: 0;
     width: 100%;
-    z-index: 20;
+    z-index: 999;
+    background-color: var(--global-bg-color);
   }
   
-  /* Make links display horizontally at the top */
-  .masthead__inner-wrap {
-    padding: 0.5em;
+  /* Move page content down to accommodate the fixed header */
+  .page {
+    padding-top: 5em;
   }
   
-  /* Fix the greedy nav positioning */
-  .greedy-nav {
-    min-width: auto;
-    width: 100%;
+  /* Make sure the main navigation menu appears at the top */
+  nav.greedy-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25em 0;
   }
   
-  /* Make the menu horizontal */
+  /* Position the toggle button properly */
+  .greedy-nav button {
+    position: relative;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2em;
+    margin-right: 0.5em;
+  }
+  
+  /* Style the navicon (hamburger) */
+  .navicon {
+    width: 1.5em;
+    height: 0.25em;
+    background: var(--global-text-color);
+    position: relative;
+  }
+  
+  .navicon::before,
+  .navicon::after {
+    content: "";
+    width: 1.5em;
+    height: 0.25em;
+    background: var(--global-text-color);
+    position: absolute;
+    left: 0;
+  }
+  
+  .navicon::before {
+    top: -0.5em;
+  }
+  
+  .navicon::after {
+    bottom: -0.5em;
+  }
+  
+  /* Fix visible links positioning */
   .greedy-nav .visible-links {
-    display: flex !important;
+    position: fixed;
+    top: 3em;
+    left: 0;
+    width: 100%;
+    background-color: var(--global-bg-color);
+    border-bottom: 1px solid var(--global-border-color);
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 100%;
-    padding: 0;
-    margin: 0;
+    padding: 0.5em 0;
   }
   
-  /* Style the menu items */
+  /* Style navigation items */
   .greedy-nav .visible-links li {
     display: inline-block;
     text-align: center;
-    margin: 0;
-    padding: 0;
   }
   
-  /* Adjust the link styling */
-  .greedy-nav a {
-    padding: 0.25em 0;
-    margin: 0 0.5em;
+  /* Hide the site title on small screens - show only navigation */
+  .greedy-nav .visible-links li.masthead__menu-item--lg {
+    display: none;
+  }
+  
+  /* Make the links in the navigation menu more visible */
+  .greedy-nav .visible-links li a {
+    padding: 0.25em;
+    margin: 0 0.25em;
     font-size: 0.9em;
   }
   
-  /* Hide title on mobile for more space */
-  .masthead__menu-item--lg {
-    display: none !important;
-  }
-  
-  /* Adjust the button position */
-  .greedy-nav button {
+  /* Position the theme toggle appropriately */
+  .greedy-nav .visible-links #theme-toggle {
     position: absolute;
-    right: 0.5em;
-    top: 0.25em;
-    height: 2em;
-    width: 2em;
-    padding: 0;
+    right: 3em;
+    top: 0.5em;
   }
-  
-  /* Fix content spacing */
-  .page__content {
-    margin-top: 0;
-  }
-  
-  /* Fix theme toggle positioning */
-  #theme-toggle {
-    position: absolute;
-    right: 2.5em;
-    top: 0.25em;
+}
   }
 }
