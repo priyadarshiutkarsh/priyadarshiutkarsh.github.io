@@ -26,5 +26,5 @@ If you’re interested in any of my work or ideas, I’m always open to meaningf
 ## News and Updates
 
 - **May 2025**: Grateful to receive the Summer Internship Scholarship Fund. 
-- **Mar 2025**: Awarded a **$1000 AI Safety Grant** from [AI Safety Support](https://aisafetysupport.org/) for research on mechanistic interpretability in transformers. 
-- **June 2024**: Honored to be selected for the Margaret E. and Allard Smith Scholarship for academic excellence.
+- **Mar 2025**: Awarded a **$1000 AI Safety Grant** from [AI Safety Support](https://aisafetysupport.org/).
+- **June 2024**: Honored to be selected for the Margaret E. and Allard Smith Scholarship.
