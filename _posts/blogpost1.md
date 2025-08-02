@@ -1,0 +1,12 @@
+---
+title: '[Mechanistic Interpretability via Learning Differential Equations](https://www.lesswrong.com/posts/qdxNsbY5kYNqcgzFb/mechanistic-interpretability-via-learning-differential)'
+date: 2025-05-08
+permalink: /posts/2025/05/mechanistic-interpretability/
+tags:
+  - mechanistic interpretability
+  - ai safety
+  - transformers
+  - blog
+---
+
+Exploring mechanistic interpretability in transformers through differential equation modeling and probing, as part of an AI Safety Camp research project.
