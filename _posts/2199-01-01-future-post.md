@@ -1,11 +1,15 @@
 ---
-title: 'Future Blog Post'
-date: 2199-01-01
-permalink: /posts/2012/08/blog-post-4/
+title: 'Mechanistic Interpretability via Learning Differential Equations'
+date: 2025-05-08
+permalink: /posts/2025/05/mechanistic-interpretability/
 tags:
-  - cool posts
-  - category1
-  - category2
+  - mechanistic interpretability
+  - ai safety
+  - transformers
+  - blog
 ---
 
-This post will show up by default. To disable scheduling of future posts, edit `config.yml` and set `future: false`. 
+Mechanistic interpretability through differential equation modeling in transformers.  
+Joint research project at AI Safety Camp exploring ODEFormer and probing techniques.  
+
+🔗 [Read the full post on LessWrong →](https://www.lesswrong.com/posts/qdxNsbY5kYNqcgzFb/mechanistic-interpretability-via-learning-differential)
