@@ -7,8 +7,8 @@ redirect_from:
   - /about.html
 ---
 
-About Me
-======
+## About Me
+
 Here is Utkarsh Priyadarshi (He/Him).
 
 I am an undergraduate student in Computer Sciences at the University of Wisconsin–Madison, currently conducting research under Dr. Adam Ross Nelson through the Wisconsin Undergraduate Research in Data Science program.
@@ -19,11 +19,9 @@ If you’re interested in any of my work or ideas, I’m always open to meaningf
 
 ## Research Interests
 
-- [Interpretability]
-- [Truthful and Honest AI]
-- [Multi Agent Alignment]
-
----
+- Interpretability
+- Truthful and Honest AI
+- Multi Agent Alignment
 
 ## News and Updates
 
