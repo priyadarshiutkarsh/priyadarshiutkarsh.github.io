@@ -11,7 +11,7 @@ redirect_from:
 
 Here is Utkarsh Priyadarshi (He/Him).
 
-I am an undergraduate student in Computer Sciences at the University of Wisconsin Madison, currently conducting research under Dr. Adam Ross Nelson through the Wisconsin Undergraduate Research in Data Science program.
+I am an undergraduate student in Computer Sciences at the University of Wisconsin Madison, currently conducting research under Dr. Adam Ross Nelson through the (WISCURDS) Wisconsin Undergraduate Research in Data Science program.
 
 Previously, I worked at a stealth AI lab on activation maximization and sparse autoencoders, interned at IBM where I developed a DCGAN for face generation, and contributed to agent risk modeling through the Supervised Program for Alignment Research (SPAR Summer 2024).
 
